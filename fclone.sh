@@ -28,7 +28,7 @@ function fclone_install()
         echo "正在从 GitHub 获取最新版本信息..."
         # 使用 -s (silent) 使 curl 静默运行, -L 跟随重定向
         # 通过 jq 解析返回的 JSON 数据，找到 linux-amd64.zip 文件的下载URL
-        LATEST_URL=$(curl -sL https://api.github.com/repos/mawaya/rclone/releases/latest | jq -r ".assets[] | select(.name | test(\"linux-amd64.zip$\")) | .browser_download_url")
+        LATEST_URL=$(curl -sL https://api.github.com/repos/pkolaczk/fclone/releases/latest | jq -r ".assets[] | select(.name | test(\"linux-amd64.zip$\")) | .browser_download_url")
 
         # 检查是否成功获取到 URL
         if [ -z "$LATEST_URL" ]; then
